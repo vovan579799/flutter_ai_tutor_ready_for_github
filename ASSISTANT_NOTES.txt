@@ -1,0 +1,4 @@
+
+Assistant notes:
+- If user wants, assistant can (1) add Edge Function for LLM proxy, (2) produce debug APK/IPA, (3) wire up Firebase console and provide guidance for real-time testing.
+- User must provide Firebase config files to fully run the app on devices.
