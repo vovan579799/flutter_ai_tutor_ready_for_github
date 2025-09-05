@@ -1,5 +1,4 @@
-# Создайте правильный файл workflow
-cat > .github/workflows/build-apk.yml << 'EOF'
+
 name: Build APK
 
 on:
@@ -32,4 +31,3 @@ jobs:
       with:
         name: app-release
         path: build/app/outputs/flutter-apk/app-release.apk
-EOF
