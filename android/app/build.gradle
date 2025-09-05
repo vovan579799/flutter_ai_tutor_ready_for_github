@@ -1,23 +1,20 @@
-﻿apply plugin: "com.android.application"
+﻿apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 33
-
     defaultConfig {
-        applicationId "com.example.flutter_ai_tutor_ready_for_github"
+        applicationId 'com.example.flutter_ai_tutor_ready_for_github'
         minSdkVersion 21
         targetSdkVersion 33
         versionCode 1
-        versionName "1.0.0"
+        versionName '1.0.0'
     }
-
     buildTypes {
         release {
             minifyEnabled false
         }
     }
 }
-
 dependencies {
-    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 }
