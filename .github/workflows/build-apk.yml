@@ -1,4 +1,4 @@
-﻿name: Build APK with Auto Fix
+﻿name: Build APK
 
 on:
   workflow_dispatch:
@@ -16,17 +16,26 @@ jobs:
       with:
         flutter-version: '3.16.0'
 
-    - name: Fix Android structure
+    - name: Create proper Flutter structure
       run: |
-        # Создаем временный проект с правильной структурой
-        flutter create -t app --org com.example --project-name flutter_ai_tutor_ready_for_github ./temp_fix
-        # Копируем только Android структуру
-        cp -r temp_fix/android ./
-        # Удаляем временный проект
-        rm -rf temp_fix
-
-    - name: Install dependencies
-      run: flutter pub get
+        # Сохраняем наши файлы
+        mkdir temp_backup
+        cp -r lib temp_backup/
+        cp pubspec.yaml temp_backup/
+        cp -r assets temp_backup/ 2>/dev/null || true
+        
+        # Создаем новый проект с правильной структурой
+        flutter create --org com.example --project-name ai_tutor .
+        
+        # Восстанавливаем наши файлы
+        rm -rf lib
+        cp -r temp_backup/lib .
+        cp temp_backup/pubspec.yaml .
+        cp -r temp_backup/assets . 2>/dev/null || true
+        rm -rf temp_backup
+        
+        # Обновляем зависимости
+        flutter pub get
 
     - name: Build APK
       run: flutter build apk --release
