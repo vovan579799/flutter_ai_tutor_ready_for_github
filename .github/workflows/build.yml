@@ -1,0 +1,45 @@
+﻿name: Build APK
+
+on: [workflow_dispatch, push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: '3.16.0'
+
+    - name: Fix project structure
+      run: |
+        # Save our files
+        mkdir backup
+        cp -r lib backup/ || true
+        cp pubspec.yaml backup/ || true
+        cp -r assets backup/ || true
+        
+        # Create proper Flutter project
+        flutter create --org com.example --project-name ai_tutor .
+        
+        # Restore our files
+        rm -rf lib
+        cp -r backup/lib . || true
+        cp backup/pubspec.yaml . || true
+        cp -r backup/assets . || true
+        rm -rf backup
+        
+        flutter pub get
+
+    - name: Build APK
+      run: flutter build apk --release
+
+    - name: Upload APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: app-release
+        path: build/app/outputs/flutter-apk/app-release.apk
