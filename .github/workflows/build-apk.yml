@@ -1,8 +1,6 @@
-﻿name: Build APK
+﻿name: Build APK with Auto Fix
 
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 jobs:
@@ -17,6 +15,15 @@ jobs:
       uses: subosito/flutter-action@v2
       with:
         flutter-version: '3.16.0'
+
+    - name: Fix Android structure
+      run: |
+        # Создаем временный проект с правильной структурой
+        flutter create -t app --org com.example --project-name flutter_ai_tutor_ready_for_github ./temp_fix
+        # Копируем только Android структуру
+        cp -r temp_fix/android ./
+        # Удаляем временный проект
+        rm -rf temp_fix
 
     - name: Install dependencies
       run: flutter pub get

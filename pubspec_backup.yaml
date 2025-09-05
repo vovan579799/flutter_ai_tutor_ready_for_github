@@ -1,4 +1,4 @@
-name: ai_tutor_starter
+﻿name: ai_tutor_starter
 description: A Flutter application for AI-powered tutoring.
 
 publish_to: 'none'
@@ -11,23 +11,15 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cloud_firestore: ^4.8.0
-  firebase_core: ^2.20.0
-  firebase_auth: ^4.7.0
-  http: ^1.1.0
-  provider: ^6.0.5
-  flutter_markdown: ^0.6.15
-  shared_preferences: ^2.2.1
-  url_launcher: ^6.1.11
-  flutter_dotenv: ^5.1.0
+  http: ^1.2.0
+  provider: ^6.1.1
+  shared_preferences: ^2.2.2
+  url_launcher: ^6.2.2
   cupertino_icons: ^1.0.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
 
 flutter:
   uses-material-design: true
-  assets:
-    - .env
