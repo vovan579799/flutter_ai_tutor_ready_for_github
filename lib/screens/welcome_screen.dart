@@ -1,4 +1,4 @@
-
+﻿
 import 'package:flutter/material.dart';
 import 'sign_in_screen.dart';
 
@@ -15,18 +15,18 @@ class WelcomeScreen extends StatelessWidget {
               SizedBox(height: 40),
               Text('AI Tutor', style: TextStyle(fontSize: 34, fontWeight: FontWeight.bold)),
               SizedBox(height: 8),
-              Text('Персональный AI-репетитор по языкам — 10–15 минут в день', style: TextStyle(fontSize: 16)),
+              Text('РџРµСЂСЃРѕРЅР°Р»СЊРЅС‹Р№ AI-СЂРµРїРµС‚РёС‚РѕСЂ РїРѕ СЏР·С‹РєР°Рј вЂ” 10вЂ“15 РјРёРЅСѓС‚ РІ РґРµРЅСЊ', style: TextStyle(fontSize: 16)),
               Spacer(),
               ElevatedButton(
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (_) => SignInScreen()));
                 },
-                child: SizedBox(width: double.infinity, child: Center(child: Text('Начать'))),
+                child: SizedBox(width: double.infinity, child: Center(child: Text('РќР°С‡Р°С‚СЊ'))),
               ),
               SizedBox(height: 12),
               TextButton(
                 onPressed: () {},
-                child: Center(child: Text('Уже есть аккаунт? Войти')),
+                child: Center(child: Text('РЈР¶Рµ РµСЃС‚СЊ Р°РєРєР°СѓРЅС‚? Р’РѕР№С‚Рё')),
               ),
             ],
           ),
@@ -35,3 +35,6 @@ class WelcomeScreen extends StatelessWidget {
     );
   }
 }
+
+
+

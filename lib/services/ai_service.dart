@@ -1,11 +1,11 @@
-
+﻿
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class AiService {
-  /// Базовый URL для Edge proxy. 
-  /// Для Android-эмулятора используйте http://10.0.2.2:3000
-  /// Для физического телефона укажите IP вашей машины в локальной сети, например http://192.168.1.100:3000
+  /// Р‘Р°Р·РѕРІС‹Р№ URL РґР»СЏ Edge proxy. 
+  /// Р”Р»СЏ Android-СЌРјСѓР»СЏС‚РѕСЂР° РёСЃРїРѕР»СЊР·СѓР№С‚Рµ http://10.0.2.2:3000
+  /// Р”Р»СЏ С„РёР·РёС‡РµСЃРєРѕРіРѕ С‚РµР»РµС„РѕРЅР° СѓРєР°Р¶РёС‚Рµ IP РІР°С€РµР№ РјР°С€РёРЅС‹ РІ Р»РѕРєР°Р»СЊРЅРѕР№ СЃРµС‚Рё, РЅР°РїСЂРёРјРµСЂ http://192.168.1.100:3000
   final String baseUrl;
 
   AiService({this.baseUrl = 'http://10.0.2.2:3000'});
@@ -28,3 +28,6 @@ class AiService {
     return jsonDecode(resp.body) as Map<String, dynamic>;
   }
 }
+
+
+

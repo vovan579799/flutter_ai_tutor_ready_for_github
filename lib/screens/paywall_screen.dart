@@ -1,4 +1,4 @@
-
+﻿
 import 'package:flutter/material.dart';
 
 class PaywallScreen extends StatelessWidget {
@@ -10,3 +10,6 @@ class PaywallScreen extends StatelessWidget {
     );
   }
 }
+
+
+
