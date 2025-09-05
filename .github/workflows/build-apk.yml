@@ -1,4 +1,4 @@
-﻿name: Build APK with Artifact
+﻿name: Build APK
 
 on: [push, workflow_dispatch]
 
@@ -11,10 +11,15 @@ jobs:
       with:
         flutter-version: '3.16.0'
     - run: flutter pub get
-    - run: flutter build apk --release
-    - name: Upload APK Artifact
+    - name: Build APK with debug info
+      run: |
+        flutter build apk --release --verbose
+        ls -la build/app/outputs/flutter-apk/
+        echo "APK files:"
+        find . -name "*.apk" -type f
+    - name: Upload APK
       uses: actions/upload-artifact@v4
       with:
-        name: ai-tutor-apk
-        path: build/app/outputs/flutter-apk/app-release.apk
+        name: app-release
+        path: build/app/outputs/flutter-apk/*.apk
         if-no-files-found: error
